@@ -1,0 +1,11 @@
+WITH ms as (SELECT CATEGORY,MAX(PRICE) as MXP
+                    FROM FOOD_PRODUCT
+                    GROUP BY 1)
+
+SELECT a.CATEGORY, MAX(PRICE)MAX_PRICE, PRODUCT_NAME
+FROM FOOD_PRODUCT as a, ms
+WHERE a.CATEGORY = ms.CATEGORY
+AND a.CATEGORY in ('과자', '국', '김치', '식용유')
+AND PRICE = ms.MXP
+GROUP BY 1
+ORDER BY 2 desc
