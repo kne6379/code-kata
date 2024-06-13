@@ -1,10 +1,10 @@
 function solution(lottos, win_nums) {
-  const rank = [6, 6, 5, 4, 3, 2, 1];
+    const answer = [];
+    const min = lottos.filter(n => win_nums.includes(n)).length;
+    const max = lottos.filter(n => n === 0).length + min;
 
-  let minCount = lottos.filter((v) => win_nums.includes(v)).length;
-  let zeroCount = lottos.filter((v) => !v).length;
+    max > 1 ? answer.push(7 - max) : answer.push(6);
+    min > 1 ? answer.push(7 - min) : answer.push(6);
 
-  const maxCount = minCount + zeroCount;
-
-  return [rank[maxCount], rank[minCount]];
+    return answer;
 }
