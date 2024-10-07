@@ -4,5 +4,5 @@ function solution(num_list) {
     num_list.forEach((v,idx)=>{
         idx%2===0? evenSum += v : oddSum += v
     });
-    return evenSum >= oddSum ? evenSum : oddSum
+    return Math.max(oddSum,evenSum)
 }
