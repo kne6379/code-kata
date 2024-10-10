@@ -1,32 +1,3 @@
-// function solution(array) {
-//     const hashSet = new Set(array);
-//     const hashMap = new Map();
-    
-//     let hashNum = [];
-    
-//     hashSet.forEach((v)=>{
-//         hashMap.set(v,0);
-//     })
-    
-//     array.forEach((v)=>{
-//          let cashNum = hashMap.get(v) + 1
-//          hashMap.set(v,cashNum)
-//     })
-//     hashNum.push(hashMap.values().next().value);
-//     for (const [key, value] of hashMap) {
-//         if(hashNum[0] < value){
-//             hashNum = [];
-//             hashNum.push(key);
-//         } else if(hashMap.get(hashNum[0]) == value){
-//             hashNum.push(key);
-//         }
-            
-//     }
-//     const unique = [...new Set(hashNum)]
-//     return unique.length > 1 ? -1 : hashNum[0];
-// }
-
-
 function solution(array) {
     const hashMap = new Map();
 
