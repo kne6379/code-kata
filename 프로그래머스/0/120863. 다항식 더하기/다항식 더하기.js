@@ -1,25 +1,19 @@
 function solution(polynomial) {
-    var answer = polynomial.split("+").map(v=>v.trim())
-    let polyStr = ''
-    let returnStr = ''
-    let poly = 0;
-    let moly = 0;
-    answer.forEach((v,idx)=>{
-        if(v[v.length-1]==="x"){
-         v.length == 1 ? poly += 1 : poly += Number(v.slice(0,v.length-1))
+    const result = [];
+    const terms = polynomial.split("+").map(v=>v.trim());
+    let confficientX = 0;
+    let constant = 0;
+    
+    terms.forEach((term)=>{
+        if(term.includes("x")){
+            let confficient = term == "x" ? 1 : Number(term.replace("x",""))
+            confficientX += confficient;
         }else{
-            moly += Number(v)
+            constant += Number(term); 
         }
-    }) 
-    polyStr = poly > 1 ? `${poly}x` : `x`
-
-    if(poly && moly){
-           polyStr += ` + ${moly}`
-    } else if(!poly){
-        console.log(moly)
-       return returnStr += `${moly}`
-    }
-    
-    
-       return moly ? polyStr : polyStr;
+    })
+    if(confficientX) result.push(confficientX === 1 ? "x" : `${confficientX}x`);
+    if(constant) result.push(constant);
+       
+    return result.join(" + ")
 }
