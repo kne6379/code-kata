@@ -1,7 +1,2 @@
-function solution(arr, n) {
-    if(arr.length % 2 === 0) {
-        return arr.map((a, i) => i%2 !== 0 ? a+n : a)
-    } else {
-        return arr.map((a, i) => i%2 === 0 ? a+n : a)
-    }
-}
+const solution = (arr, n) => 
+   arr.map((v, i) => (arr.length % 2 !== i % 2 ? v + n : v))
