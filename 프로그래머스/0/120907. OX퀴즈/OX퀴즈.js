@@ -3,15 +3,8 @@ function solution(quiz) {
         '+': (x,y) => x + y,
         '-': (x,y) => x - y
     }
-    const result = quiz.map(v=>{
-        const [a, b, c, d, e] = v.split(" ")
-        
-        if(operatorMap[b](Number(a),Number(c)) === Number(e)){
-            return "O"
-        }else{
-            return "X"
-        }
+    return quiz.map(v=>{
+        const [operand1, operator, operand2, , result] = v.split(" ");
+        return operatorMap[operator](Number(operand1), Number(operand2)) === Number(result) ? "O" : "X";
     })
-
-    return result;
 }
