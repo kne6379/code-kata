@@ -2,14 +2,11 @@ function solution(numbers, direction) {
     let temp = 0;
     switch(direction){
         case "left" :
-            temp = numbers.shift();
-            numbers.push(temp);
+            numbers.push(numbers.shift());
             break;
         case "right" :
-            temp = numbers.pop();
-            numbers.unshift(temp);
+            numbers.unshift(numbers.pop());
             break;
     }
-        
     return numbers;
 }
