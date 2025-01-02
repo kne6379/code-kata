@@ -1,4 +1,4 @@
 function solution(emergency) {
-    let sorted = emergency.slice().sort((a,b)=>b-a);
-    return emergency.map(v=>sorted.indexOf(v)+1);
+    const sortArray = [...emergency].sort((a, b)=> b-a);
+    return emergency.map((v)=> sortArray.indexOf(v)+1)
 }
